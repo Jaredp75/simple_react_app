@@ -8,17 +8,17 @@ import earthquakes from '../data/earthquakes.js';
 
 export default class EarthquakeList extends Component {
   render() {
-  let earthquakeList = earthquakes.map((earthquake) => {
+  let quakeList = earthquakes.features.map((earthquake) => {
     return (
-      <div className="col-sm-6" key={earthquakes.id}>
+      <div className="col-sm-6" key={earthquake.id}>
         <div className="card" >
           <div className="card-block">
-            <h4 className="card-title">{earthquakes.place}</h4>
-            <h6 className="card-subtitle mb-2 text-muted">Magnitude: {earthquakes.mag}</h6>
-            <h6 className="card-subtitle mb-2 text-muted">Time: {moment(earthquakes.time).format('llll')}</h6>
-            <p className="card-text">Coordinates: {earthquakes.coordinates}</p>
+            <h4 className="card-title">{earthquake.properties.place}</h4>
+            <h6 className="card-subtitle mb-2 text-muted">Magnitude: {earthquake.properties.mag}</h6>
+            <h6 className="card-subtitle mb-2 text-muted">Time: {moment(earthquake.properties.time).format('llll')}</h6>
+            <p className="card-text">Coordinates: {earthquake.properties.coordinates}</p>
 
-            <a href={earthquakes.url} className="card-link">USGS Event Link</a>
+            <a href={earthquake.properties.url} className="card-link">USGS Event Link</a>
 
     </div>
   </div>
@@ -28,14 +28,13 @@ export default class EarthquakeList extends Component {
 
 
     return (
-      <section>
+
         <div className="quake-list">
-          //<div className="row">
-          {earthquakeList}
+          <div className="row">
+          {quakeList}
 
           </div>
         </div>
-      </section>
     )
   }
 }
