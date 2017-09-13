@@ -12,8 +12,8 @@ class App extends Component {
         <div className="title">
           <div className="my-header">"Earthquakes!"</div>
         </div>
-      <EarthquakeList />
       <EarthquakeInfo />
+      <EarthquakeList />
       </div>
     );
   }
